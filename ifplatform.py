@@ -27,6 +27,7 @@ class IfPlatform(dotbot.Plugin):
         'anylinux',     # All linux
         'anybsd',       # All BSD
         'macos',        # MacOS
+        'windows',      # Windows
         'ubuntu',       # Ubuntu
         'debian',       # Debian
         'rhel',         # RedHat Enterprise Linux
@@ -84,6 +85,8 @@ class IfPlatform(dotbot.Plugin):
             raise ValueError('Cannot handle this directive %s' % directive)
 
         did = distro.id()
+        if sys.platform == 'win32':
+            did = 'windows'
         if did == 'darwin':
             did = 'macos'
 
