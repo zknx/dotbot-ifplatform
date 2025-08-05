@@ -59,7 +59,7 @@ class IfPlatform(dotbot.Plugin):
         super(IfPlatform, self).__init__(context)
         self._directives = ['if'+d for d in self._distros]
         self._bsd = [d for d in self._distros if d.endswith('bsd')]
-        self._linux = [d for d in self._distros if (d not in self._bsd) and (d != 'macos')]
+        self._linux = [d for d in self._distros if (d not in self._bsd) and (d != 'macos') and (d != 'windows')]
 
     def can_handle(self, directive):
         return directive in self._directives
